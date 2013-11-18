@@ -1,3 +1,5 @@
+import os
+
 def _find_profile(profile_name):
     from IPython.utils.path import locate_profile, get_ipython_dir
     try:
