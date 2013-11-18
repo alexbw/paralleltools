@@ -7,6 +7,12 @@ def _find_profile(profile_name):
         profile_path = os.path.join(get_ipython_dir(), "profile_%s"%profile_name)
         exists = False
     return profile_path, exists
+    
+def unique_profile_name():
+    import hashlib
+    import time
+    return "local_%s" % hashlib.sha1(str(time.time())).hexdigest()[:8]
+
 
 def get_engines(n_workers=4, profile_name="default", create_if_necessary=True, max_wait=90, ping_interval=1):
     """
